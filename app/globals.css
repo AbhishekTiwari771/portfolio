@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper: 246 245 241;
+  --color-ink: 24 26 27;
+  --color-muted: 107 111 115;
+  --color-line: 226 224 217;
+  --color-signal: 178 100 32;
+  --color-computed: 34 78 122;
+  --color-dot: 220 218 209;
+  --color-code-bg: 237 235 229;
+}
+
+.dark {
+  --color-paper: 19 20 22;
+  --color-ink: 235 234 230;
+  --color-muted: 148 152 156;
+  --color-line: 42 44 47;
+  --color-signal: 224 148 79;
+  --color-computed: 116 168 214;
+  --color-dot: 34 36 39;
+  --color-code-bg: 27 29 31;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-paper text-ink antialiased transition-colors duration-200;
+  }
+  ::selection {
+    @apply bg-signal/20;
+  }
+  a {
+    @apply underline decoration-line decoration-1 underline-offset-4;
+  }
+  a:hover {
+    @apply decoration-ink;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-computed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
