@@ -70,7 +70,7 @@ I’m a Computer Science student who enjoys building data analytics tools, inter
             <LogRow
               key={post.slug}
               href={`/writing/${post.slug}`}
-              eyebrow={post.date.slice(0, 7)}
+              eyebrow={post.date?.slice(0, 7)??""}
               title={post.title}
               summary={post.summary}
             />
